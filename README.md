@@ -5,7 +5,7 @@ Projet de classification supervisée pour prédire le statut pondéral d'un indi
 
 ## Données
 
-- **Source** : https://www.kaggle.com/datasets/suleymansulak/obesity-dataset`
+- **Source** : https://www.kaggle.com/datasets/suleymansulak/obesity-dataset
 - **Classes** : `Underweight`, `Normal`, `Overweight`, `Obesity`
 
 
