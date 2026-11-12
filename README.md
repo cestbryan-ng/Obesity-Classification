@@ -18,6 +18,38 @@ Le projet s'appuie sur une Régression Logistique (OvR) avec une implémentation
 
 Suite aux phases de test et de comparaison, le modèle **AdaBoost** s'est imposé comme le plus performant. En utilisant un **Arbre de Décision** comme estimateur de base, AdaBoost a permis de "booster" ses performances en corrigeant successivement les erreurs des modèles faibles. 
 
+## Résultats et visualisations
+
+### Courbe de validation du KNN
+
+![Scores d'entraînement et de test du KNN en fonction du nombre de voisins](assets/images/validation-knn.png)
+
+Avec un seul voisin, le score d'entraînement est parfait, mais le score de test est nettement plus faible : cet écart indique un surapprentissage. Lorsque le nombre de voisins augmente, l'écart se réduit, mais le score de test baisse également.
+
+### Courbe de validation de l'arbre de décision
+
+![Scores d'entraînement et de test de l'arbre de décision en fonction de sa profondeur](assets/images/validation-arbre-decision.png)
+
+Le score de test progresse avec la profondeur puis se stabilise autour de 0,80, tandis que le score d'entraînement approche 1. L'écart entre les deux courbes montre qu'un arbre très profond peut surapprendre les données d'entraînement.
+
+### Importance des variables
+
+![Importance des variables calculée par l'arbre de décision](assets/images/importance-features.png)
+
+Dans cet arbre de décision, `Age` est la variable la plus importante selon la mesure d'importance du modèle. Cette mesure décrit la contribution des variables aux décisions de cet estimateur ; elle ne permet pas de conclure à une relation de causalité.
+
+### Frontières de décision
+
+![Comparaison des frontières de décision de Naïve Bayes et d'AdaBoost](assets/images/frontieres-decision.png)
+
+Ces graphiques représentent les frontières de décision de Naïve Bayes et d'AdaBoost (avec un arbre de décision) dans une représentation en deux dimensions. Les couleurs de fond montrent les classes prédites par les modèles et les points représentent les observations. AdaBoost produit ici des frontières plus complexes.
+
+### Robustesse des modèles
+
+![Baisse des scores Accuracy et F1 des modèles lors du test de robustesse](assets/images/robustesse-modeles.png)
+
+Le graphique compare la baisse de l'Accuracy et du F1-score lors du test de robustesse : plus la baisse est faible, moins le modèle est affecté par la perturbation testée. Dans cette expérience, le SVM RBF subit la baisse la plus faible, tandis qu'AdaBoost subit la plus forte. Le modèle le plus performant en classification n'est donc pas nécessairement le plus robuste.
+
 
 ## SetUp
 
